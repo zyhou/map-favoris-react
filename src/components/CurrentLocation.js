@@ -6,7 +6,6 @@ export default class CurrentLocation extends Component {
 //         super(props);
 //     }
 
-
     render() {
         return (
             <h4>{this.props.address}</h4>

@@ -6,12 +6,25 @@ export default class Map extends Component {
 //         super(props);
 //     }
 
+	componentDidMount(){
+
+        // Méthode pas appelé par défaut voir
+        // https://facebook.github.io/react/docs/component-specs.html
+        this.componentDidUpdate()
+    }
+
+    componentDidUpdate(){
+
+        // new GMaps({
+		// 	el: '#map',
+		// 	lat: this.props.lat,
+		// 	lng: this.props.lng
+		// });
+    }
+
     render() {
         return (
-            <div>
-                <h4>{this.props.lat}</h4>
-                <h4>{this.props.lng}</h4>
-            </div>
+            <div id="map"></div>
         )
     }
 }
