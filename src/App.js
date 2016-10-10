@@ -32,7 +32,7 @@ export default class App extends Component {
         </section>
 
         <section>
-          {this.state.currentAddress}
+         <CurrentLocation address={this.state.currentAddress} />
         </section>
 
       </main>
