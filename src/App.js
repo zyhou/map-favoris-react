@@ -1,21 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Search from './components/Search';
+import CurrentLocation from './components/CurrentLocation';
+
 import './App.css';
 
-class App extends Component {
+export default class App extends Component {
+  
+    constructor(props) {
+        super(props);
+        this.state = { currentAddress: "Nancy, France" };
+    }
+
+  searchForAddress(address) {
+    this.setState({currentAddress: address});
+
+  }
+
   render() {
+
+  let ref = this;
+
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
+      <main>
+        <h1>Votre localisation Google map</h1>
+
+        <section>
+          <Search onSearch={ref.searchForAddress.bind(this)} />
+        </section>
+
+        <section>
+        </section>
+
+        <section>
+          {this.state.currentAddress}
+        </section>
+
+      </main>
     );
   }
 }
-
-export default App;
