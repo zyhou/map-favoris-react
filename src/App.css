@@ -44,3 +44,24 @@ main {
   content: '\2605'; /* Full star in UTF-8 */
   position: absolute;
 }
+
+.localisation-items {
+  width: 350px;
+}
+
+.localisation-items > h3 {
+  background: #50E3A4;
+  color: white;
+  padding: 10px 20px;
+}
+
+.localisation-items > div {
+  background: #F0EFE9;
+  display: flex;
+  flex-direction: column;
+}
+
+.localisation-items > div > a {
+  padding: 10px 20px;
+  border: 1px solid white;
+}

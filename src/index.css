@@ -9,8 +9,11 @@ html {
 }
 
 body {
-  padding:60px;
   text-align: center;
+}
+
+#root {
+  padding:60px;
 }
 
 h1 {

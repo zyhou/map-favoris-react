@@ -9,7 +9,7 @@ export default class LocationListe extends Component {
     render() {
 
         var locations = this.props.locations.map(function (l) {
-            return (<div key={l.id}>{l.address}</div>)
+            return (<a key={l.id}>{l.address}</a>)
         });
 
         if (!locations.length) {
@@ -17,8 +17,11 @@ export default class LocationListe extends Component {
         }
 
         return (
-            <div>
+            <div className="localisation-items">
+                <h3>Localisations sauvegardé</h3>
+                <div>
                 {locations}
+                </div>
             </div>
         )
     }
