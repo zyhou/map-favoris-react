@@ -5,22 +5,41 @@ import Map from './components/Map';
 import './App.css';
 
 export default class App extends Component {
-  
-    constructor(props) {
-        super(props);
-        this.state = { 
-          currentAddress: "Nancy, France",
-          mapCoordinates: {lat : 48.69, lng : 6.17}
-        };
-    }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentAddress: "Nancy, France",
+      mapCoordinates: { lat: 48.69, lng: 6.17 }
+    };
+  }
 
   searchForAddress(address) {
-    this.setState({currentAddress: address});
+
+    let ref = this;
+
+    //http://hpneo.github.io/gmaps/examples/geocoding.html
+    window.GMaps.geocode({
+      address: address,
+      callback: function (results, status) {
+        if (status !== 'OK') return;
+
+        let latlng = results[0].geometry.location;
+        ref.setState({
+          currentAddress: results[0].formatted_address,
+          mapCoordinates: {
+            lat: latlng.lat(),
+            lng: latlng.lng()
+          }
+        });
+      }
+    });
+
   }
 
   render() {
 
-  let ref = this;
+    let ref = this;
 
     return (
       <main>
@@ -35,7 +54,7 @@ export default class App extends Component {
         </section>
 
         <section>
-         <CurrentLocation address={this.state.currentAddress} />
+          <CurrentLocation address={this.state.currentAddress} />
         </section>
 
       </main>
