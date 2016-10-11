@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Search from './components/Search';
 import CurrentLocation from './components/CurrentLocation';
 import Map from './components/Map';
+import LocationListe from './components/LocationListe';
 import './App.css';
 
 export default class App extends Component {
@@ -93,7 +94,9 @@ export default class App extends Component {
           <CurrentLocation address={this.state.currentAddress} onToggleFavoris={ref.toggleFavoris.bind(this)} isInFavoris={this.isFavorisExist(this.state.currentAddress)} />
         </section>
 
-        {this.state.favorisListe.map(function(a) {return a.address;})}
+        <section>
+          <LocationListe locations={this.state.favorisListe} />
+        </section>
 
       </main>
     );
