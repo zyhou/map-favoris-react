@@ -15,6 +15,14 @@ export default class Map extends Component {
 
     componentDidUpdate() {
 
+        // Si c'est les mêmes coordonnée, on ne recharge pas la map
+        if (this.lastLat == this.props.lat && this.lastLng == this.props.lng) {
+            return;
+        }
+
+        this.lastLat = this.props.lat;
+        this.lastLng = this.props.lng
+
         let map = new window.GMaps({
             el: '#map',
             lat: this.props.lat,
