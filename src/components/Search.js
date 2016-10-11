@@ -8,7 +8,7 @@ export default class Search extends Component {
     }
 
     handleChange(e) {
-        this.setState({ value:  e.target.value });
+        this.setState({ value: e.target.value });
     }
 
     handleSubmit(e) {
@@ -18,8 +18,9 @@ export default class Search extends Component {
 
     render() {
         return (
-            <form onSubmit={(e) => this.handleSubmit(e)}>
+            <form onSubmit={(e) => this.handleSubmit(e)} className="search-form">
                 <input type="text" placeholder="Chercher une localisation..." value={this.state.value} onChange={(e) => this.handleChange(e)} />
+                <button type="submit">Rechercher</button>
             </form>
         )
     }

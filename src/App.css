@@ -1,3 +1,29 @@
 main {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-form {
+  display: flex;
+
+}
+
+.search-form > input[type=text]  {
+  flex: 1 0 8em;
+  border-width: 2px;
+  border-radius: 3px;
+  color: #2c3e50;
+  border: 1px solid #dce4ec;
+  font-size: 20px;
+  line-height: 1.5;
+  padding-left: 10px;
+}
+
+.search-form > button[type=submit]  {
+  flex: 0 0 auto;
+  border:none;
+  background: #50E3A4;
+  color: white;
+  padding: 10px;
 }
