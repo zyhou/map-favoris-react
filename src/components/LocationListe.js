@@ -7,6 +7,7 @@ export default class LocationListe extends Component {
     //     }
 
     onClickItem(e) {
+        // récupére le texte qui se trouve dans le span
         let address = e.target.firstChild.nodeValue
         this.props.onClickItem(address)
     }
