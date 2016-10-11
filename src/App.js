@@ -10,13 +10,12 @@ export default class App extends Component {
         super(props);
         this.state = { 
           currentAddress: "Nancy, France",
-          mapCoordinates: {lat : 48.68, lng : 6.18}
+          mapCoordinates: {lat : 48.69, lng : 6.17}
         };
     }
 
   searchForAddress(address) {
     this.setState({currentAddress: address});
-
   }
 
   render() {
