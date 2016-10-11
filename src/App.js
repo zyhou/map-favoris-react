@@ -10,7 +10,8 @@ export default class App extends Component {
     super(props);
     this.state = {
       currentAddress: "Nancy, France",
-      mapCoordinates: { lat: 48.69, lng: 6.17 }
+      mapCoordinates: { lat: 48.69, lng: 6.17 },
+      favorisListe: []
     };
   }
 
@@ -34,7 +35,42 @@ export default class App extends Component {
         });
       }
     });
+  }
 
+  toggleFavoris(address) {
+    let ref = this;
+    if (ref.isFavorisExist(address)) {
+      ref.removeFavoris(address)
+    }
+    else {
+      ref.addFavoris(address)
+    }
+  }
+
+  addFavoris(address) {
+    // Trouvé sur internet
+    let id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
+    let favoris = this.state.favorisListe
+
+    favoris.push({ id: id, address: address });
+    this.setState({ favorisListe: favoris });
+  }
+
+  removeFavoris(address) {
+    let favoris = this.state.favorisListe.filter(function (f) {
+      return f.address !== address;
+    });
+    this.setState({ favorisListe: favoris });
+  }
+
+  isFavorisExist(address) {
+    let favoris = this.state.favorisListe;
+    for (var i = 0; i < favoris.length; i++) {
+      if (favoris[i].address === address) {
+        return true;
+      }
+    }
+    return false;
   }
 
   render() {
@@ -54,8 +90,10 @@ export default class App extends Component {
         </section>
 
         <section>
-          <CurrentLocation address={this.state.currentAddress} />
+          <CurrentLocation address={this.state.currentAddress} onToggleFavoris={ref.toggleFavoris.bind(this)} isInFavoris={this.isFavorisExist(this.state.currentAddress)} />
         </section>
+
+        {this.state.favorisListe.map(function(a) {return a.address;})}
 
       </main>
     );
