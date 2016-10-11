@@ -15,9 +15,9 @@ export default class CurrentLocation extends Component {
         let etoileFull = this.props.isInFavoris ? "full" : "";
 
         return (
-            <div className="currentlocation">
+            <div className="currentlocation" onClick={() => this.toggleFavoris()}>
                 <h4>{this.props.address}</h4>
-                <span className={"etoile-icon " + etoileFull} onClick={() => this.toggleFavoris()}>☆</span>
+                <span className={"etoile-icon " + etoileFull}>☆</span>
             </div>
         )
     }

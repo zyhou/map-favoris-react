@@ -30,12 +30,12 @@ main {
 .currentlocation {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .etoile-icon {
   color: #ddd;
   font-size: 2em;
-  cursor: pointer;
 }
 
 .etoile-icon.full:before {
@@ -64,4 +64,5 @@ main {
 .localisation-items > div > span {
   padding: 10px 20px;
   border: 1px solid white;
+  cursor: pointer;
 }
