@@ -95,7 +95,7 @@ export default class App extends Component {
         </section>
 
         <section>
-          <LocationListe locations={this.state.favorisListe} />
+          <LocationListe locations={this.state.favorisListe} onClickItem={ref.searchForAddress.bind(this)} />
         </section>
 
       </main>

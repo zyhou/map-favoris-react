@@ -6,11 +6,16 @@ export default class LocationListe extends Component {
     //         super(props);
     //     }
 
+    onClickItem(e) {
+        let address = e.target.firstChild.nodeValue
+        this.props.onClickItem(address)
+    }
+
     render() {
 
         var locations = this.props.locations.map(function (l) {
-            return (<a key={l.id}>{l.address}</a>)
-        });
+            return (<span key={l.id} onClick={(e) => this.onClickItem(e)}>{l.address}</span>)
+        }.bind(this))
 
         if (!locations.length) {
             return null;
@@ -20,7 +25,7 @@ export default class LocationListe extends Component {
             <div className="localisation-items">
                 <h3>Localisations sauvegardé</h3>
                 <div>
-                {locations}
+                    {locations}
                 </div>
             </div>
         )

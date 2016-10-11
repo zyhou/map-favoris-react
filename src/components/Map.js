@@ -16,7 +16,7 @@ export default class Map extends Component {
     componentDidUpdate() {
 
         // Si c'est les mêmes coordonnée, on ne recharge pas la map
-        if (this.lastLat == this.props.lat && this.lastLng == this.props.lng) {
+        if (this.lastLat === this.props.lat && this.lastLng === this.props.lng) {
             return;
         }
 

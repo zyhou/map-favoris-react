@@ -61,7 +61,7 @@ main {
   flex-direction: column;
 }
 
-.localisation-items > div > a {
+.localisation-items > div > span {
   padding: 10px 20px;
   border: 1px solid white;
 }
